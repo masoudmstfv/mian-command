@@ -43,4 +43,4 @@ nameserver      185.98.113.113
 nameserver      185.98.114.114
  
 apt install speedtest-cli
-
+sudo tail -f /var/log/apache2/access.log
