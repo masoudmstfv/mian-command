@@ -1,0 +1,46 @@
+apt update && apt upgrade -y
+passwd
+systemctl restart sshd
+reboot
+ping *.*.*.* 
+kharej==>ssh root@IP -p 56777
+
+
+cd /opt
+wget https://raw.githubusercontent.com/DEAD-EYE-AKPRO/v2ray-IR/main/faren-server.sh
+chmod +x faren-server.sh
+./faren-server.sh
+
+
+echo 1 > /proc/sys/net/ipv4/icmp_echo_ignore_all
+
+nano /etc/resolv.conf
+
+apt update && apt upgrade -y
+netstat -tulnp | grep ssh
+nano /etc/ssh/sshd_config
+
+sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config && sudo systemctl restart ssh && sudo passwd
+
+bash <(curl -Ls https://raw.githubusercontent.com/NidukaAkalanka/x-ui-english/master/install.sh)
+
+bash <(curl -Ls https://raw.githubusercontent.com/alireza0/x-ui/master/install.sh)
+
+sysctl net.ipv6.conf.all.disable_ipv6=0
+sysctl -w net.ipv6.conf.all.disable_ipv6=1
+ sysctl -p
+ ip a | grep inet6
+
+
+M@soud1370
+
+history -c && history -w
+
+Nano  /etc/resolv.conf
+
+  GNU nano 5.4                    /etc/resolv.conf
+nameserver      185.98.113.113
+nameserver      185.98.114.114
+ 
+apt install speedtest-cli
+
