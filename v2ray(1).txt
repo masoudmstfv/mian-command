@@ -1,9 +1,45 @@
-apt update && apt upgrade -y
-passwd
+
+passwd 
+
+
 systemctl restart sshd
-reboot
-ping *.*.*.* 
-kharej==>ssh root@IP -p 56777
+
+
+apt update -y && apt upgrade -y
+
+
+apt install curl -y
+
+
+sed -i 's/http:\/\/[a-z]*.archive.ubuntu.com/http:\/\/mirror.arvancloud.ir/g' /etc/apt/sources.list && sed -i 's|http://deb.debian.org/debian|http://mirror.arvancloud.ir/debian|g' /etc/apt/sources.list && apt update && rm -rf /etc/resolv.conf && touch /etc/resolv.conf && echo 'nameserver 10.202.10.202' >> /etc/resolv.conf && echo 'nameserver 10.202.10.102' >> /etc/resolv.conf && echo "185.199.108.133 raw.githubusercontent.com" > /etc/hosts
+
+
+rm -rf /etc/resolv.conf && touch /etc/resolv.conf && echo 'nameserver 8.8.8.8' >> /etc/resolv.conf && echo 'nameserver 1.1.1.1' >> /etc/resolv.conf
+
+
+
+bash <(curl -Ls https://raw.githubusercontent.com/alireza0/x-ui/master/install.sh)
+
+nano /etc/resolv.conf
+
+nameserver 8.8.8.8
+nameserver 1.1.1.1
+
+
+
+
+nameserver 185.12.64.1
+nameserver 185.12.64.2
+
+
+bbr:
+
+rm /etc/sysctl.conf && echo "vm.swappiness=10" >> /etc/sysctl.conf && echo "vm.dirty_ratio=20" >> /etc/sysctl.conf && echo "vm.dirty_background_ratio=10" >> /etc/sysctl.conf && echo "fs.file-max=2097152" >> /etc/sysctl.conf && echo "net.core.somaxconn=4096" >> /etc/sysctl.conf && echo "net.core.netdev_max_backlog=16384" >> /etc/sysctl.conf && echo "net.ipv4.ip_local_port_range=1024 65535" >> /etc/sysctl.conf && echo "net.ipv4.ip_nonlocal_bind=1" >> /etc/sysctl.conf && echo "net.ipv4.tcp_fin_timeout=15" >> /etc/sysctl.conf && echo "net.ipv4.tcp_keepalive_time=300" >> /etc/sysctl.conf && echo "net.ipv4.tcp_syncookies=0" >> /etc/sysctl.conf && echo "net.ipv4.tcp_max_orphans=262144" >> /etc/sysctl.conf && echo "net.ipv4.tcp_max_syn_backlog=8192" >> /etc/sysctl.conf && echo "net.ipv4.tcp_max_tw_buckets=262144" >> /etc/sysctl.conf && echo "net.ipv4.tcp_reordering=3" >> /etc/sysctl.conf && echo "net.ipv4.tcp_mem=786432 1697152 1945728" >> /etc/sysctl.conf && echo "net.ipv4.tcp_rmem=4096 87380 16777216" >> /etc/sysctl.conf && echo "net.ipv4.tcp_wmem=4096 65536 16777216" >> /etc/sysctl.conf && echo "net.ipv4.tcp_syn_retries=5" >> /etc/sysctl.conf && echo "net.ipv4.tcp_tw_reuse=1" >> /etc/sysctl.conf && rm /etc/security/limits.conf && echo "* soft nproc 65535" >> /etc/security/limits.conf && echo "* hard nproc 65535" >> /etc/security/limits.conf && echo "* soft nofile 1048576" >> /etc/security/limits.conf && echo "* hard nofile 1048576" >> /etc/security/limits.conf && echo "root soft nproc 65535" >> /etc/security/limits.conf && echo "root hard nproc 65535" >> /etc/security/limits.conf && echo "root soft nofile 1048576" >> /etc/security/limits.conf && echo "root hard nofile 1048576" >> /etc/security/limits.conf && sysctl -p && clear && echo "" && echo " - Done" && echo ""
+
+echo "net.core.default_qdisc=fq" >> /etc/sysctl.conf echo "net.ipv4.tcp_congestion_control=bbr" >> /etc/sysctl.conf sysctl -p
+
+
+curl -sL nws.sh | bash
 
 
 cd /opt
@@ -11,36 +47,75 @@ wget https://raw.githubusercontent.com/DEAD-EYE-AKPRO/v2ray-IR/main/faren-server
 chmod +x faren-server.sh
 ./faren-server.sh
 
+wget -N --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh && chmod +x bbr.sh && bash bbr.sh
 
-echo 1 > /proc/sys/net/ipv4/icmp_echo_ignore_all
+
+
+opt# cat upstream-install.log
+
+
+warp:
+bash <(wget -qO- https://gitlab.com/rwkgyg/CFwarp/raw/main/CFwarp.sh 2> /dev/null)
+
+
+
+curl -s https://packagecloud.io/install/repositories/ookla/speedtest-cli/script.deb.sh
+
+
+apt install speedtest-cli
+
+
+speedtest-cli --secure
+
+apt-transport-https
 
 nano /etc/resolv.conf
 
-apt update && apt upgrade -y
+
+
+
 netstat -tulnp | grep ssh
 nano /etc/ssh/sshd_config
 
+
+
 sudo sed -i 's/#PermitRootLogin prohibit-password/PermitRootLogin yes/' /etc/ssh/sshd_config && sudo systemctl restart ssh && sudo passwd
+
+
 
 bash <(curl -Ls https://raw.githubusercontent.com/NidukaAkalanka/x-ui-english/master/install.sh)
 
+
+
 bash <(curl -Ls https://raw.githubusercontent.com/alireza0/x-ui/master/install.sh)
 
-sysctl net.ipv6.conf.all.disable_ipv6=0
+
+sysctl -w net.ipv6.conf.all.disable_ipv6=0
+systemctl restart sshd
+
 sysctl -w net.ipv6.conf.all.disable_ipv6=1
- sysctl -p
- ip a | grep inet6
+sysctl -p
+
+And see
+ip a | grep inet6
+
 
 
 M@soud1370
 
+
+
 history -c && history -w
 
-Nano  /etc/resolv.conf
 
-  GNU nano 5.4                    /etc/resolv.conf
-nameserver      185.98.113.113
-nameserver      185.98.114.114
- 
-apt install speedtest-cli
-sudo tail -f /var/log/apache2/access.log
+
+apt-get clean
+
+
+https://github.com/iaghapour/IPV6-Tunnel
+
+
+sed -i 's/http:\/\/[a-z]*.archive.ubuntu.com/http:\/\/mirror.arvancloud.ir/g' /etc/apt/sources.list && sed -i 's|http://deb.debian.org/debian|http://mirror.arvancloud.ir/debian|g' /etc/apt/sources.list && apt update && rm -rf /etc/resolv.conf && touch /etc/resolv.conf && echo 'nameserver 10.202.10.202' >> /etc/resolv.conf && echo 'nameserver 10.202.10.102' >> /etc/resolv.conf && echo "185.199.108.133 raw.githubusercontent.com" > /etc/hosts
+
+
+rm -rf /etc/resolv.conf && touch /etc/resolv.conf && echo 'nameserver 8.8.8.8' >> /etc/resolv.conf && echo 'nameserver 1.1.1.1' >> /etc/resolv.conf
